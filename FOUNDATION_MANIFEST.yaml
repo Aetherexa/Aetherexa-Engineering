@@ -1,0 +1,58 @@
+foundation:
+  name: Aetherexa Foundation Engineering Operating System
+  version: 1.0.0
+  releaseDate: 2026-08-06
+  repositoryType: engineering-operating-system
+  containsProductCode: false
+  mission: Define how all Aetherexa products are built, reviewed, shipped, and operated.
+
+governance:
+  owners:
+    - Engineering Leadership Council
+  steward: Platform Engineering
+  approvedBy: CTO
+  changeControl:
+    significantChangesRequire:
+      - RFC
+      - Architecture review
+
+standards:
+  requiredFiles:
+    - README.md
+    - LICENSE
+    - CODE_OF_CONDUCT.md
+    - CONTRIBUTING.md
+    - SECURITY.md
+    - ROADMAP.md
+    - CHANGELOG.md
+    - FOUNDATION_MANIFEST.yaml
+  requiredDomains:
+    - ai
+    - architecture
+    - automation
+    - docs
+    - engineering
+    - examples
+    - playbooks
+    - templates
+    - testing
+    - security
+    - quality
+    - release
+
+automation:
+  ci: .github/workflows/ci.yml
+  codeql: .github/workflows/codeql.yml
+  release: .github/workflows/release.yml
+  dependabot: .github/dependabot.yml
+
+openSourceReadiness:
+  codeOfConduct: CODE_OF_CONDUCT.md
+  contributingGuide: CONTRIBUTING.md
+  securityPolicy: SECURITY.md
+  changelog: CHANGELOG.md
+  releaseNotes: RELEASE_NOTES.md
+
+aiWorkforce:
+  workflow: ai/ai-native-workflow.md
+  rolesIndex: ai/roles/README.md

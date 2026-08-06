@@ -1,0 +1,23 @@
+# GitHub Labels Configuration
+
+- type:bug
+- type:feature
+- type:chore
+- type:docs
+- type:security
+- type:performance
+- priority:p0
+- priority:p1
+- priority:p2
+- priority:p3
+- status:triage
+- status:ready
+- status:in-progress
+- status:blocked
+- status:done
+- area:frontend
+- area:backend
+- area:platform
+- area:ai
+- area:docs
+- area:devex

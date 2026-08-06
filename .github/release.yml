@@ -1,0 +1,23 @@
+changelog:
+  categories:
+    - title: Documentation
+      labels:
+        - type:docs
+    - title: Security
+      labels:
+        - type:security
+    - title: Quality and Standards
+      labels:
+        - type:quality
+    - title: Automation
+      labels:
+        - type:automation
+    - title: Features
+      labels:
+        - type:feature
+    - title: Bug Fixes
+      labels:
+        - type:bug
+  exclude:
+    labels:
+      - status:triage

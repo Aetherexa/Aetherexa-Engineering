@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability disclosure
+    url: mailto:vibecoderimsp2596@gmail.com
+    about: Report vulnerabilities privately per SECURITY.md.
+  - name: Engineering OS documentation index
+    url: https://github.com/aetherexa/aetherexa-foundation/blob/main/docs/INDEX.md
+    about: Start here for standards, workflows, and operating guides.

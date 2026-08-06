@@ -1,0 +1,41 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  docs-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Markdown lint
+        uses: DavidAnson/markdownlint-cli2-action@v17
+        with:
+          globs: |
+            **/*.md
+      - name: Local markdown link validation
+        shell: pwsh
+        run: |
+          $md = Get-ChildItem -Recurse -File -Include *.md
+          $broken = @()
+          foreach($f in $md){
+            $content = Get-Content $f.FullName -Raw
+            $matches = [regex]::Matches($content,'\[[^\]]+\]\(([^)]+)\)')
+            foreach($m in $matches){
+              $link = $m.Groups[1].Value.Trim()
+              if($link -match '^(http|https|mailto):'){ continue }
+              if($link.StartsWith('#')){ continue }
+              $clean = $link.Split('#')[0]
+              if([string]::IsNullOrWhiteSpace($clean)){ continue }
+              $target = Join-Path $f.DirectoryName $clean
+              if(-not (Test-Path $target)){
+                $broken += "$($f.FullName) -> $link"
+              }
+            }
+          }
+          if($broken.Count -gt 0){
+            Write-Host "Broken local markdown links found:"
+            $broken | ForEach-Object { Write-Host $_ }
+            exit 1
+          }
+          Write-Host "No broken local markdown links found."
